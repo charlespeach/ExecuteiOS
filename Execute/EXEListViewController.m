@@ -50,7 +50,11 @@
         return NO;
     } else {
         [self.tasks insertObject:textField.text atIndex:0];
-        [self.tableView reloadData];
+        
+        [self.tableView beginUpdates];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+        [self.tableView endUpdates];
     
         textField.text = nil;
     
