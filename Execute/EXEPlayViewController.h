@@ -8,4 +8,7 @@
 
 @interface EXEPlayViewController : UIViewController
 
+@property (nonatomic) UILabel *label;
+@property (nonatomic) UIButton *button;
+
 @end
