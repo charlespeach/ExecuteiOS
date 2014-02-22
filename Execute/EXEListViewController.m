@@ -8,7 +8,7 @@
 
 #import "EXEListViewController.h"
 
-@interface EXEListViewController ()
+@interface EXEListViewController () <UITextFieldDelegate>
 
 @property (nonatomic) NSMutableArray *tasks;
 
@@ -21,8 +21,10 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 280.0f, 32.0f)];
-    textField.backgroundColor = [UIColor lightGrayColor];
+    textField.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
     textField.returnKeyType = UIReturnKeyGo;
+    textField.placeholder = @"What do you want to execute?";
+    textField.delegate = self;
     self.navigationItem.titleView = textField;
     
     self.tasks = [[NSMutableArray alloc] init];
