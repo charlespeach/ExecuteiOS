@@ -18,7 +18,8 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    NSLog(@"Text: %@", textField.text);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"This is the title" message:textField.text delegate:nil cancelButtonTitle:@"Alrighty" otherButtonTitles:nil];
+    [alert show];
     return NO;
 }
 
