@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 280.0f, 32.0f)];
@@ -39,15 +40,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.textLabel.text = self.tasks[indexPath.row];
+    
     return cell;
 }
 
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self.tasks addObject:textField.text];
-    [self.tableView reloadData];
-    textField.text = nil;
-    return NO;
+    if ([textField.text isEqual: @""]) {
+        return NO;
+    } else {
+        [self.tasks insertObject:textField.text atIndex:0];
+        [self.tableView reloadData];
+    
+        textField.text = nil;
+    
+        return NO;
+    }
 }
 
 @end
