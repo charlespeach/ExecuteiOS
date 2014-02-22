@@ -42,4 +42,12 @@
     return cell;
 }
 
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self.tasks addObject:textField.text];
+    [self.tableView reloadData];
+    textField.text = nil;
+    return NO;
+}
+
 @end
