@@ -28,7 +28,8 @@
     textField.delegate = self;
     self.navigationItem.titleView = textField;
     
-    self.tasks = [[NSMutableArray alloc] init];
+    NSArray *loadedTasks = [[NSUserDefaults standardUserDefaults] arrayForKey:@"tasks"];
+    self.tasks = [[NSMutableArray alloc] initWithArray:loadedTasks];
 }
 
 
@@ -57,6 +58,10 @@
         [self.tableView endUpdates];
     
         textField.text = nil;
+        
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        [userDefaults setObject:self.tasks forKey:@"tasks"];
+        [userDefaults synchronize];
     
         return NO;
     }
