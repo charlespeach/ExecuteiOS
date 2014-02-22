@@ -10,6 +10,8 @@
 
 @interface EXEListViewController ()
 
+@property (nonatomic) NSMutableArray *tasks;
+
 @end
 
 @implementation EXEListViewController
@@ -19,25 +21,21 @@
     
     self.title = @"Execute";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    
+    self.tasks = [[NSMutableArray alloc] init];
+    [self.tasks addObject:@"Mow the lawn"];
+    [self.tasks addObject:@"Another thing"];
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [self.tasks count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    
-    if (indexPath.row == 0) {
-        cell.textLabel.text = @"First";
-    } else if (indexPath.row == 1) {
-        cell.textLabel.text = @"Second";
-    } else {
-        cell.textLabel.text = @"Say Hi!";
-    }
-    
+    cell.textLabel.text = self.tasks[indexPath.row];
     return cell;
 }
 
