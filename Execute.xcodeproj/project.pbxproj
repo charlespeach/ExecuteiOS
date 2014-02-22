@@ -20,6 +20,7 @@
 		56965C64189D277D00BCDE5E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56965C62189D277D00BCDE5E /* InfoPlist.strings */; };
 		56965C66189D277D00BCDE5E /* ExecuteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56965C65189D277D00BCDE5E /* ExecuteTests.m */; };
 		56965C71189D2A8600BCDE5E /* EXEPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56965C70189D2A8600BCDE5E /* EXEPlayViewController.m */; };
+		56D0C21118B875BF00E08ECB /* EXEListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D0C21018B875BF00E08ECB /* EXEListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		56965C65189D277D00BCDE5E /* ExecuteTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExecuteTests.m; sourceTree = "<group>"; };
 		56965C6F189D2A8600BCDE5E /* EXEPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXEPlayViewController.h; sourceTree = "<group>"; };
 		56965C70189D2A8600BCDE5E /* EXEPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXEPlayViewController.m; sourceTree = "<group>"; };
+		56D0C20F18B875BF00E08ECB /* EXEListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXEListViewController.h; sourceTree = "<group>"; };
+		56D0C21018B875BF00E08ECB /* EXEListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXEListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,8 @@
 				56965C47189D277D00BCDE5E /* Supporting Files */,
 				56965C6F189D2A8600BCDE5E /* EXEPlayViewController.h */,
 				56965C70189D2A8600BCDE5E /* EXEPlayViewController.m */,
+				56D0C20F18B875BF00E08ECB /* EXEListViewController.h */,
+				56D0C21018B875BF00E08ECB /* EXEListViewController.m */,
 			);
 			path = Execute;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				56965C71189D2A8600BCDE5E /* EXEPlayViewController.m in Sources */,
 				56965C4D189D277D00BCDE5E /* main.m in Sources */,
 				56965C51189D277D00BCDE5E /* EXEAppDelegate.m in Sources */,
+				56D0C21118B875BF00E08ECB /* EXEListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +454,7 @@
 				56965C6B189D277D00BCDE5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56965C6C189D277D00BCDE5E /* Build configuration list for PBXNativeTarget "ExecuteTests" */ = {
 			isa = XCConfigurationList;
@@ -456,6 +463,7 @@
 				56965C6E189D277D00BCDE5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
