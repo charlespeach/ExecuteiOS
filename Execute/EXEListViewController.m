@@ -18,13 +18,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"Execute";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 280.0f, 32.0f)];
+    textField.backgroundColor = [UIColor lightGrayColor];
+    textField.returnKeyType = UIReturnKeyGo;
+    self.navigationItem.titleView = textField;
+    
     self.tasks = [[NSMutableArray alloc] init];
-    [self.tasks addObject:@"Mow the lawn"];
-    [self.tasks addObject:@"Another thing"];
 }
 
 
