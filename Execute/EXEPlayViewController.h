@@ -6,9 +6,6 @@
 //  Copyright (c) 2014 cub3y. All rights reserved.
 //
 
-@interface EXEPlayViewController : UIViewController
-
-@property (nonatomic) UILabel *label;
-@property (nonatomic) UIButton *button;
+@interface EXEPlayViewController : UIViewController <UITextFieldDelegate>
 
 @end
