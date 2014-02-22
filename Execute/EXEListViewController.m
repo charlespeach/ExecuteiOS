@@ -21,12 +21,15 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 280.0f, 32.0f)];
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 260.0f, 32.0f)];
     textField.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
     textField.returnKeyType = UIReturnKeyGo;
     textField.placeholder = @"What do you want to execute?";
     textField.delegate = self;
     self.navigationItem.titleView = textField;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"✏️" style:UIBarButtonItemStylePlain target:self action:@selector(toggleEdit:)];
+    
     
     NSArray *loadedTasks = [[NSUserDefaults standardUserDefaults] arrayForKey:@"tasks"];
     self.tasks = [[NSMutableArray alloc] initWithArray:loadedTasks];
@@ -64,6 +67,20 @@
         [userDefaults synchronize];
     
         return NO;
+    }
+}
+
+- (void)toggleEdit:(id)sender {
+    [self setEditing:!self.editing animated:YES];
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    
+    if (editing) {
+        self.navigationItem.rightBarButtonItem.title = @"👍";
+    } else {
+        self.navigationItem.rightBarButtonItem.title = @"✏️";
     }
 }
 
