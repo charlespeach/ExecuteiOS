@@ -10,13 +10,24 @@
 
 @implementation EXETaskTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        // Initialization code
-    }
-    return self;
+@synthesize task = _task;
+@synthesize completed = _completed;
+
+- (void)setTask:(NSString *)task {
+    _task = task;
+    self.textLabel.text = task;
 }
+
+
+- (void)setCompleted:(BOOL)completed {
+    _completed = completed;
+    
+    if (_completed) {
+        self.textLabel.textColor = [UIColor lightGrayColor];
+    } else {
+        self.textLabel.textColor = [UIColor blackColor];
+    }
+}
+
 
 @end

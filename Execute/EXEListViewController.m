@@ -96,13 +96,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     EXETaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [self arrayForSection:indexPath.section][indexPath.row];
-    
-    if (indexPath.section == 0) {
-        cell.textLabel.textColor = [UIColor blackColor];
-    } else {
-        cell.textLabel.textColor = [UIColor lightGrayColor];
-    }
+    cell.task = [self arrayForSection:indexPath.section][indexPath.row];
+    cell.completed = indexPath.section == 1;
 
     return cell;
 }
