@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     self.title = @"Edit";
-    self.view.backgroundColor = [UIColor purpleColor];
+    
 }
 
 

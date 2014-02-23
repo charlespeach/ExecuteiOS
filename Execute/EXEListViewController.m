@@ -9,6 +9,7 @@
 #import "EXEListViewController.h"
 #import "EXETaskTableViewCell.h"
 #import "EXEEditViewController.h"
+#import "EXETaskTextField.h"
 
 @interface EXEListViewController () <UITextFieldDelegate>
 
@@ -27,7 +28,7 @@
     
     [self.tableView registerClass:[EXETaskTableViewCell class] forCellReuseIdentifier:@"cell"];
     
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 260.0f, 32.0f)];
+    EXETaskTextField *textField = [[EXETaskTextField alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 260.0f, 32.0f)];
     textField.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
     textField.returnKeyType = UIReturnKeyGo;
     textField.placeholder = @"What do you want to execute?";
