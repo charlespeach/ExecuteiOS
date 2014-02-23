@@ -71,6 +71,15 @@
 }
 
 
+- (NSMutableArray *)arrayForSection:(NSInteger)section {
+    if (section == 0) {
+        return self.tasks;
+    }
+    
+    return self.completedTasks;
+}
+
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -79,25 +88,28 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 1) {
-        return [self.completedTasks count];
-    }
-    return [self.tasks count];
+    return [[self arrayForSection:section] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
+    cell.textLabel.text = [self arrayForSection:indexPath.section][indexPath.row];
+    
     if (indexPath.section == 0) {
-        cell.textLabel.text = self.tasks[indexPath.row];
         cell.textLabel.textColor = [UIColor blackColor];
     } else {
-        cell.textLabel.text = self.completedTasks[indexPath.row];
         cell.textLabel.textColor = [UIColor lightGrayColor];
     }
 
     return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [[self arrayForSection:indexPath.section] removeObjectAtIndex:indexPath.row];
+    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
 }
 
 
@@ -144,10 +156,8 @@
     } else {
         [self.tasks insertObject:textField.text atIndex:0];
         
-        [self.tableView beginUpdates];
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
-        [self.tableView endUpdates];
     
         textField.text = nil;
         
