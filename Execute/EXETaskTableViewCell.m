@@ -35,6 +35,7 @@
 - (UITapGestureRecognizer *)editGestureRecognizer {
     if (_editGestureRecognizer == nil) {
         _editGestureRecognizer = [[UITapGestureRecognizer alloc] init];
+        _editGestureRecognizer.delegate = self;
         [self addGestureRecognizer:_editGestureRecognizer];
     }
     return _editGestureRecognizer;
@@ -45,6 +46,12 @@
     [super setEditing:editing animated:animated];
     
     self.editGestureRecognizer.enabled = editing;
+}
+
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    CGPoint point = [touch locationInView:self];
+    return CGRectContainsPoint(self.contentView.frame, point);
 }
 
 
