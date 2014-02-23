@@ -110,6 +110,26 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     [[self arrayForSection:indexPath.section] removeObjectAtIndex:indexPath.row];
     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    
+    [self save];
+}
+
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    NSMutableArray *array = [self arrayForSection:fromIndexPath.section];
+    
+    NSString *task = array[fromIndexPath.row];
+    [array removeObjectAtIndex:fromIndexPath.row];
+    [array insertObject:task atIndex:toIndexPath.row];
+
+    [tableView moveRowAtIndexPath:fromIndexPath toIndexPath:toIndexPath];
+
+    [self save];
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.section == 0;
 }
 
 
