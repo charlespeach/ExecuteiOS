@@ -21,6 +21,7 @@
 		56965C66189D277D00BCDE5E /* ExecuteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56965C65189D277D00BCDE5E /* ExecuteTests.m */; };
 		56965C71189D2A8600BCDE5E /* EXEPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56965C70189D2A8600BCDE5E /* EXEPlayViewController.m */; };
 		56D0C21118B875BF00E08ECB /* EXEListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D0C21018B875BF00E08ECB /* EXEListViewController.m */; };
+		56D0C21418B9B08000E08ECB /* EXETaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D0C21318B9B08000E08ECB /* EXETaskTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		56965C70189D2A8600BCDE5E /* EXEPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXEPlayViewController.m; sourceTree = "<group>"; };
 		56D0C20F18B875BF00E08ECB /* EXEListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXEListViewController.h; sourceTree = "<group>"; };
 		56D0C21018B875BF00E08ECB /* EXEListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXEListViewController.m; sourceTree = "<group>"; };
+		56D0C21218B9B08000E08ECB /* EXETaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXETaskTableViewCell.h; sourceTree = "<group>"; };
+		56D0C21318B9B08000E08ECB /* EXETaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXETaskTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				56965C70189D2A8600BCDE5E /* EXEPlayViewController.m */,
 				56D0C20F18B875BF00E08ECB /* EXEListViewController.h */,
 				56D0C21018B875BF00E08ECB /* EXEListViewController.m */,
+				56D0C21218B9B08000E08ECB /* EXETaskTableViewCell.h */,
+				56D0C21318B9B08000E08ECB /* EXETaskTableViewCell.m */,
 			);
 			path = Execute;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 			files = (
 				56965C71189D2A8600BCDE5E /* EXEPlayViewController.m in Sources */,
 				56965C4D189D277D00BCDE5E /* main.m in Sources */,
+				56D0C21418B9B08000E08ECB /* EXETaskTableViewCell.m in Sources */,
 				56965C51189D277D00BCDE5E /* EXEAppDelegate.m in Sources */,
 				56D0C21118B875BF00E08ECB /* EXEListViewController.m in Sources */,
 			);

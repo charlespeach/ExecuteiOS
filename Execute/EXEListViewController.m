@@ -7,6 +7,7 @@
 //
 
 #import "EXEListViewController.h"
+#import "EXETaskTableViewCell.h"
 
 @interface EXEListViewController () <UITextFieldDelegate>
 
@@ -23,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerClass:[EXETaskTableViewCell class] forCellReuseIdentifier:@"cell"];
     
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 260.0f, 32.0f)];
     textField.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
@@ -93,7 +94,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    EXETaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
     cell.textLabel.text = [self arrayForSection:indexPath.section][indexPath.row];
     
