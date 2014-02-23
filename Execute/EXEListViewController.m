@@ -8,6 +8,7 @@
 
 #import "EXEListViewController.h"
 #import "EXETaskTableViewCell.h"
+#import "EXEEditViewController.h"
 
 @interface EXEListViewController () <UITextFieldDelegate>
 
@@ -62,6 +63,15 @@
 }
 
 
+- (void)editTask:(UITapGestureRecognizer *)sender {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell *)sender.view];
+    NSLog(@"task: %@", [self arrayForSection:indexPath.section][indexPath.row]);
+    
+    EXEEditViewController *viewController = [[EXEEditViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+
 #pragma mark - Private
 
 - (void)save {
@@ -95,6 +105,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     EXETaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    [cell.editGestureRecognizer addTarget:self action:@selector(editTask:)];
     
     cell.task = [self arrayForSection:indexPath.section][indexPath.row];
     cell.completed = indexPath.section == 1;
@@ -167,19 +179,24 @@
 #pragma mark - UITextFeildDelegate
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if ([textField.text isEqual: @""]) {
-        return NO;
-    } else {
-        [self.tasks insertObject:textField.text atIndex:0];
-        
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
     
+    NSString *text = [textField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if (text.length == 0) {
         textField.text = nil;
-        
-        [self save];
+        [textField resignFirstResponder];
         return NO;
     }
+    
+    [self.tasks insertObject:text atIndex:0];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+
+    textField.text = nil;
+    
+    [self save];
+    return NO;
 }
 
 @end

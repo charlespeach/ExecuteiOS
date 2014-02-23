@@ -12,6 +12,8 @@
 
 @synthesize task = _task;
 @synthesize completed = _completed;
+@synthesize editGestureRecognizer = _editGestureRecognizer;
+
 
 - (void)setTask:(NSString *)task {
     _task = task;
@@ -27,6 +29,22 @@
     } else {
         self.textLabel.textColor = [UIColor blackColor];
     }
+}
+
+
+- (UITapGestureRecognizer *)editGestureRecognizer {
+    if (_editGestureRecognizer == nil) {
+        _editGestureRecognizer = [[UITapGestureRecognizer alloc] init];
+        [self addGestureRecognizer:_editGestureRecognizer];
+    }
+    return _editGestureRecognizer;
+}
+
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    
+    self.editGestureRecognizer.enabled = editing;
 }
 
 

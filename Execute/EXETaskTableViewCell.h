@@ -12,5 +12,6 @@
 
 @property (nonatomic) NSString *task;
 @property (nonatomic) BOOL completed;
+@property (nonatomic, readonly) UITapGestureRecognizer *editGestureRecognizer;
 
 @end
